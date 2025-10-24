@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Granja Media Luna</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Granja Media Luna</h1>
+        <p>Contáctanos</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.php">Productos</a></li>
+            <li><a href="clientes.php">Clientes</a></li>
+            <li><a href="facturacion.php">Facturación</a></li>
+            <li><a href="admin.php">Administración</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Información de Contacto</h2>
+            <div class="contact-info">
+                <div>
+                    <h3>Dirección</h3>
+                    <p>Carretera principal, km 5<br>
+                    Zona rural, Colombia</p>
+                </div>
+                <div>
+                    <h3>Teléfono</h3>
+                    <p>(+57) 123 456 7890</p>
+                </div>
+                <div>
+                    <h3>Correo Electrónico</h3>
+                    <p>info@granjamederaluna.com</p>
+                </div>
+                <div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/571234567890" target="_blank">+57 123 456 7890</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Envíanos un Mensaje</h2>
+            <form id="formContacto">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="asunto">Asunto:</label>
+                    <input type="text" id="asunto" name="asunto" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Horarios de Atención</h2>
+            <p>Lunes a Viernes: 7:00 AM - 5:00 PM</p>
+            <p>Sábados: 7:00 AM - 12:00 PM</p>
+            <p>Domingos: Cerrado</p>
+        </section>
+
+        <section>
+            <h2>Ubicación</h2>
+            <div id="mapa" style="height: 300px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                <p>Aquí irá el mapa de ubicación de la granja</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Granja Media Luna. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+</body>
+</html>
+
+<style>
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-info div {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.contact-info h3 {
+    color: #2E7D32;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+</style>
