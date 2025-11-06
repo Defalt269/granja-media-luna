@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Granja Media Luna</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Granja Media Luna</h1>
+        <p>Contáctanos</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.php">Productos</a></li>
+            <li><a href="clientes.php">Clientes</a></li>
+            <li><a href="facturacion.php">Facturación</a></li>
+            <li><a href="admin.php">Administración</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="contact-hero">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para atenderte. ¡No dudes en ponerte en contacto con nosotros!</p>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-info-section">
+                <h2>Información de Contacto</h2>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Dirección</h3>
+                        <p>Carretera principal, km 5<br>
+                        Zona rural, Colombia</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h3>Teléfono</h3>
+                        <p>(+57) 123 456 7890</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h3>Correo Electrónico</h3>
+                        <p>info@granjamedialuna.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">💬</div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/571234567890" target="_blank" class="whatsapp-link">+57 123 456 7890</a></p>
+                    </div>
+                </div>
+
+                <div class="business-hours">
+                    <h3>Horarios de Atención</h3>
+                    <div class="hours-grid">
+                        <div class="hour-item">
+                            <span class="day">Lunes - Viernes</span>
+                            <span class="time">7:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="day">Sábados</span>
+                            <span class="time">7:00 AM - 12:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="day">Domingos</span>
+                            <span class="time">Cerrado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Envíanos un Mensaje</h2>
+                <form id="formContacto">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+57 123 456 7890">
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required placeholder="¿En qué podemos ayudarte?">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Enviar Mensaje</span>
+                        <span class="btn-icon">📤</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="location-section">
+            <h2>Nuestra Ubicación</h2>
+            <div class="location-content">
+                <div class="map-container">
+                    <div id="mapa" class="map-placeholder">
+                        <div class="map-content">
+                            <span class="map-icon">📍</span>
+                            <h3>Encuéntranos aquí</h3>
+                            <p>Carretera principal, km 5<br>Zona rural, Colombia</p>
+                            <a href="https://maps.google.com/?q=Carretera+principal,+km+5,+Colombia" target="_blank" class="map-link">Ver en Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-info">
+                    <h3>¿Cómo llegar?</h3>
+                    <p>Estamos ubicados en la zona rural de Colombia, a solo 5 kilómetros de la carretera principal. Nuestro acceso es fácil y contamos con estacionamiento para nuestros clientes.</p>
+                    <div class="location-features">
+                        <div class="feature">
+                            <span class="feature-icon">🚗</span>
+                            <span>Estacionamiento disponible</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🛣️</span>
+                            <span>Acceso directo por carretera</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">⏰</span>
+                            <span>Entrega inmediata disponible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Granja Media Luna. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+</body>
+</html>
