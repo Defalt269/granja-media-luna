@@ -4,7 +4,7 @@ include 'php/conexion.php';
 // Función para obtener productos disponibles
 function obtenerProductosDisponibles() {
     global $conn;
-    $sql = "SELECT * FROM productos WHERE cantidad_disponible > 0 ORDER BY nombre";
+    $sql = "SELECT * FROM productos WHERE cantidad_disponible >0 ORDER BY nombre";
     $result = $conn->query($sql);
     return $result;
 }
@@ -51,7 +51,7 @@ function registrarVenta($id_cliente, $productos) {
             $result = $stmt->get_result();
             $row = $result->fetch_assoc();
             $subtotal = $row['precio'] * $producto['cantidad'];
-
+            
             $sql = "INSERT INTO detalle_venta (id_venta, id_producto, cantidad, subtotal) VALUES (?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("iiid", $id_venta, $producto['id'], $producto['cantidad'], $subtotal);
@@ -74,6 +74,7 @@ function registrarVenta($id_cliente, $productos) {
 
 // Procesar formulario de venta
 $id_venta_generada = null;
+$error_stock = null;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['generar_factura'])) {
     $productos_seleccionados = [];
     if (isset($_POST['productos'])) {
@@ -87,7 +88,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['generar_factura'])) {
         }
     }
 
-    if (!empty($productos_seleccionados) && !empty($_POST['cliente'])) {
+    // Validar stock disponible
+    if (!empty($productos_seleccionados)) {
+        foreach ($productos_seleccionados as $producto) {
+            $sql = "SELECT nombre, cantidad_disponible FROM productos WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $producto['id']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            
+            if ($row && $producto['cantidad'] > $row['cantidad_disponible']) {
+                $error_stock = "Error: La cantidad ingresada para " . htmlspecialchars($row['nombre']) . " (" . $producto['cantidad'] . ") supera el stock disponible (" . $row['cantidad_disponible'] . ").";
+                break;
+            }
+        }
+    }
+
+    if (!empty($productos_seleccionados) && !empty($_POST['cliente']) && !$error_stock) {
         $id_venta_generada = registrarVenta($_POST['cliente'], $productos_seleccionados);
     }
 }
@@ -124,6 +142,13 @@ $clientes = obtenerClientes();
     <main>
         <section>
             <h2>Generar Nueva Factura</h2>
+            
+            <?php if ($error_stock): ?>
+            <div style="background-color: #f8d7da; color: #721c24; padding: 12px; border-radius: 4px; margin-bottom: 20px; border: 1px solid #f5c6cb;">
+                <strong>⚠️ Error:</strong> <?php echo $error_stock; ?>
+            </div>
+            <?php endif; ?>
+            
             <form id="formFactura" method="POST">
                 <div class="form-group">
                     <label for="cliente">Seleccionar Cliente:</label>
